@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 bot = commands.Bot(command_prefix='?', help_command=None)
-token = ''
+token = ''#ปล่อยว่างไว้
 @bot.event
 async def on_ready() :
     print("? Started")
@@ -11,7 +11,7 @@ async def on_message(message) :
 @bot.command()
 async def start(ctx) :
     await ctx.send('OK')
-@bot.command()
+@bot.command()#อันนี้ คำสั่ง help
 async def help(ctx):
     author = ctx.message.author
     embed = discord.Embed(colour = discord.Colour.orange())
