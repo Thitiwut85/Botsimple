@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 bot = commands.Bot(command_prefix='?', help_command=None)
+token = ''
 @bot.event
 async def on_ready() :
     print("? Started")
@@ -17,4 +18,4 @@ async def help(ctx):
     embed.set_author(name='Help?')
     embed.add_field(name='?start', value='OK', inline=False)
     await author.send(embed=embed)
-bot.run('NzgxMzg5NjQyMTgzNzM3Mzk1.X7870A.HPT89ajSKXFlM92JUdnY_Ni6QyU')
+bot.run(token)
