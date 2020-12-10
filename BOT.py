@@ -2,6 +2,7 @@ import discord
 import time
 import asyncio
 import random
+import quiz_choice
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='?', help_command=None)
@@ -29,41 +30,26 @@ async def categories(ctx):
     embed=discord.Embed(title="Categories", color=0xef8206)
     embed.add_field(name="หมวดหมู่", value=categories_str)
     await ctx.send(embed=embed)
-emojinum = {1:"1️⃣", 2:"2️⃣", 3:"3️⃣", 4:"4️⃣", 5:"5️⃣", 6:"6️⃣", 7:"7️⃣", 8:"8️⃣", 9:"9️⃣", 10:"🔟"}
-allquiz = {"1": ("What was the name of the Ethiopian Wolf before they knew it was related to wolves?", 
-                ("Simien Jackel", True), 
-                ("Ethiopian Coyote", False), 
-                ("Amharic Fox", False), 
-                ("Canis Simiensis", False), 
-                {'True':"1️⃣"}), 
-            "2": ("What scientific suborder does the family Hyaenidae belong to", 
-                ("Haplorhini", False), 
-                ("Feliformia", True), 
-                ("Ciconiiformes", False),
-                ("Caniformia", False),
-                {'True':"2️⃣"})}
 @bot.command()
-async def quiz(ctx, number):
+async def quiz(ctx, number) :
     await ctx.send(f'OK {ctx.author.mention}')
-    embed=discord.Embed(title=f"Question {number}", color=0xeb0000)
+    embed=discord.Embed(title=f"Question {number}", color=0xef8206)
     newstr = ""
     num = 1
-    for x in allquiz[number]:
+    for x in quiz_choice.allquiz[number]:
         if len(x) == 2:
             newstr += f"{num} {x[0]}\n\n"
             num += 1
-    embed.add_field(name=allquiz[number][0], value=newstr, inline=True)
-    embed.set_footer(text="Time: x seconds, Score: y points")
+    embed.add_field(name=quiz_choice.allquiz[number][0], value=newstr, inline=True)
+    embed.set_footer(text="Time: 15 seconds")
     question = await ctx.send(embed=embed)
-    num = 1
-    for i in allquiz[number]:
-        if len(i) == 2:
-            await question.add_reaction(emojinum[num])
-            num += 1
-
+    await question.add_reaction("1️⃣")
+    await question.add_reaction("2️⃣")
+    await question.add_reaction("3️⃣")
+    await question.add_reaction("4️⃣")
     def check(reaction, user):
         if user == ctx.author and reaction.message.id == question.id:
-            if allquiz[number][emojinum.index(str(reaction.emoji))][1]:
+            if str(reaction.emoji) == (quiz_choice.allquiz[number][5]).get('True'):
                 return True
             raise ValueError
     try:
@@ -71,9 +57,9 @@ async def quiz(ctx, number):
     except TimeoutError:
         await ctx.channel.send("หมดเวลาครับ")
     except ValueError:
-        await ctx.channel.send(":negative_squared_cross_mark: ตอบผิด")
+        await ctx.channel.send("<:x_:786493309785735219> ตอบผิด")
     else:
-       await ctx.channel.send(":white_check_mark: ตอบถูกครับ")
+        await ctx.channel.send(":white_check_mark: ตอบถูก")
     
     
     
