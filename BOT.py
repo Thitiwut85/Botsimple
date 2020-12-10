@@ -43,31 +43,37 @@ allquiz = {"1": ("What was the name of the Ethiopian Wolf before they knew it wa
                 ("Caniformia", False),
                 {'True':"2️⃣"})}
 @bot.command()
-async def quiz(ctx, number) :
+async def quiz(ctx, number):
     await ctx.send(f'OK {ctx.author.mention}')
-    embed=discord.Embed(title=f"Question {number}", color=0xef8206)
+    embed=discord.Embed(title=f"Question {number}", color=0xeb0000)
     newstr = ""
     num = 1
-    state = False
     for x in allquiz[number]:
         if len(x) == 2:
             newstr += f"{num} {x[0]}\n\n"
             num += 1
     embed.add_field(name=allquiz[number][0], value=newstr, inline=True)
-    embed.set_footer(text="Time: 15 seconds")
+    embed.set_footer(text="Time: x seconds, Score: y points")
     question = await ctx.send(embed=embed)
-    await question.add_reaction("1️⃣")
-    await question.add_reaction("2️⃣")
-    await question.add_reaction("3️⃣")
-    await question.add_reaction("4️⃣")
+    num = 1
+    for i in allquiz[number]:
+        if len(i) == 2:
+            await question.add_reaction(emojinum[num])
+            num += 1
+
     def check(reaction, user):
-        return user == ctx.author and reaction.message.id == question.id and str(reaction.emoji) == (allquiz[number][5]).get('True')
+        if user == ctx.author and reaction.message.id == question.id:
+            if allquiz[number][emojinum.index(str(reaction.emoji))][1]:
+                return True
+            raise ValueError
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=15.0, check=check)
-    except:
+    except TimeoutError:
         await ctx.channel.send("หมดเวลาครับ")
+    except ValueError:
+        await ctx.channel.send(":negative_squared_cross_mark: ตอบผิด")
     else:
-        await ctx.channel.send(":white_check_mark: ตอบถูก")
+       await ctx.channel.send(":white_check_mark: ตอบถูกครับ")
     
     
     
