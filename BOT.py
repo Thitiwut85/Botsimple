@@ -16,9 +16,6 @@ async def on_ready() :
 async def on_message(message) :
     await bot.process_commands(message)
 @bot.command()
-async def start(ctx) :
-    await ctx.send('OK')
-@bot.command()
 async def help(ctx):
     embed=discord.Embed(title="Command", color=0xef8206)
     embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/786169057953972224/786504574042243072/question.png")
