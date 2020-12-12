@@ -68,4 +68,4 @@ allquiz = {"1": ("https://www.matichon.co.th/wp-content/uploads/2017/05/%E0%B8%A
                 ("ลิงขาว", True), 
                 ("คน", False), 
                 ("ตัวไรก็ไม่รู้", False), 
-                {'True': "2️⃣"}),}
+                {'True': "2️⃣"})}
