@@ -87,7 +87,13 @@ async def quiz(ctx, number) :
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=timeperquiz, check=check)
     except ValueError:
+        with open("users.json", "r") as fi:
+            users = json.load(fi)
+        update_data(users, ctx.author)
         await ctx.channel.send("<:x_:786493309785735219> ตอบผิด")
+        await add_incorrect(users, ctx.author)
+        with open("users.json", "w") as fi:
+            json.dump(users, fi)
     except:
         await ctx.channel.send("⏰ หมดเวลา")
     else:
@@ -131,7 +137,13 @@ async def random(ctx):#คำสั่งสุ่ม quiz
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=15.0, check=check)
     except ValueError:
+        with open("users.json", "r") as fi:
+            users = json.load(fi)
+        update_data(users, ctx.author)
         await ctx.channel.send("<:x_:786493309785735219> ตอบผิด")
+        await add_incorrect(users, ctx.author)
+        with open("users.json", "w") as fi:
+            json.dump(users, fi)
     except:
         await ctx.channel.send("⏰ หมดเวลา")
     else:
@@ -172,7 +184,13 @@ async def pic(ctx, number):#คำสั่งเลือก quiz แบบร�
     try:
         reaction, user = await bot.wait_for('reaction_add', timeout=15.0, check=check)
     except ValueError:
+        with open("users.json", "r") as fi:
+            users = json.load(fi)
+        update_data(users, ctx.author)
         await ctx.channel.send("<:x_:786493309785735219> ตอบผิด")
+        await add_incorrect(users, ctx.author)
+        with open("users.json", "w") as fi:
+            json.dump(users, fi)
     except:
         await ctx.channel.send("⏰ หมดเวลา")
     else:
