@@ -12,7 +12,7 @@ allquiz = {"1": ("https://www.matichon.co.th/wp-content/uploads/2017/05/%E0%B8%A
                 ("เต่า", False), 
                 ("แต่ว", False),
                 ("ลูลู่", False),
-                {'True':"1️⃣"})
+                {'True':"1️⃣"}),
             "3": ("https://lh3.googleusercontent.com/proxy/V--BgGG0ebYmhes3g1-EtisfvZKdrh7zgYKRgswNYsoifw0EYsM_mlMdMfBVepyIxJZ9-dvForclvFmwd1tZ4htPu_YN4ZW-mwSfs5H99RaCCrZLfZZXD1DYYHFQTrtm2xcufy8", 
                 ("นี่คือตัวอะไร"),
                 ("สุนัข", True), 
