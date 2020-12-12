@@ -208,4 +208,4 @@ allquiz = {"1": ("What was the name of the Ethiopian Wolf before they knew it wa
                 ("จระเข้", True), 
                 ("วัว", False),
                 ("ไม่มีข้อใดถูก", False),
-                {'True':"2️⃣"}),}
+                {'True':"2️⃣"})}
