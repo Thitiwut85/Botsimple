@@ -5,8 +5,8 @@ import quiz_pic
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix='?', help_command=None)
-token = 'NzgxMzg5NjQyMTgzNzM3Mzk1.X7870A.bTr1e9tAmN4Xe0sqqh6ItWWnoZo'
-os.chdir(r"D:\Quizbot")  #change dir where users.json and bot.py is
+token = '' #ใส่token bot discord
+os.chdir(r"D:\Quizbot")
 pointperquiz = 10
 timeperquiz = 15
 
