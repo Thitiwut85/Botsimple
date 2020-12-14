@@ -19,7 +19,7 @@ allquiz = {"1": ("https://www.matichon.co.th/wp-content/uploads/2017/05/%E0%B8%A
                 ("จระเข้", False), 
                 ("สุเข้", False),
                 ("ตัวไรก็ไม่รู้", False),
-                {'True':"1️⃣"})
+                {'True':"1️⃣"}),
             "4": ("https://www.catdumb.com/wp-content/uploads/2016/05/5-77.jpg", 
                 ("นี่คือตัวอะไร"),
                 ("นก", False), 
