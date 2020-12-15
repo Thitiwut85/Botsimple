@@ -5,7 +5,7 @@ allquiz = {"1": ("What was the name of the Ethiopian Wolf before they knew it wa
                 ("Amharic Fox", False), 
                 ("Canis Simiensis", False), 
                 {'True':"1️⃣"}), 
-            "2": ("What scientific suborder does the family Hyaenidae belong to", 
+            "2": ("สีม่วงเกิดจาก", 
                 ("Haplorhini", False), 
                 ("Feliformia", True), 
                 ("Ciconiiformes", False),
